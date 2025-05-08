@@ -325,15 +325,17 @@ $conn->close();
 </form>
 ~~~
 
+![](images/Imagen9.png)
+
 En la función **pasword_hash()"** utilizamos la función por defecto: **PASSWORD_DEFAULT** que usa actualmente **BCRYPT**, pero se actualizará automáticamente en versiones futuras de PHP. Si deseas más control, puedes usar **PASSWORD_BCRYPT** o **PASSWORD_ARGON2ID**.
 
 >Como vemos, una vez ejecutado nos informa que el usuario raul con contraseña 123456 ha sido insertado.
 >
-![](images/Imagen9.png)
+![](images/Imagen10.png)
 
  Lo podemos ver accediendo al servicio phpmyadmin: `http://localhost:8080`
 
-![](images/Imagen10.png)
+![](images/Imagen11.png)
 
  También puedes obtener los usuarios conectandote a la base de datos y ejecutando la consulta:
 
@@ -393,9 +395,11 @@ $conn->close();
 </form>
 ~~~
 
+![](images/Imagen12.png)
+
 Como vemos en la siguiente imagen nos da un login exitoso:
 
-![](images/Imagen11.png)
+![](images/Imagen13.png)
 
 También puedes probar a usuarlos introduciendo en el navegador:
 
@@ -409,7 +413,7 @@ Si introducimos datos no correcto dará el mensaje de "Usuario o contraseña no 
 http://localhost/login_weak1.php?username=raul&password=1234
 ~~~
 
-![](images/Imagen12.png)
+![](images/Imagen14.png)
 
 
 ### Uso de consultas preparadas
@@ -468,8 +472,10 @@ $conn->close();
     <input type="password" name="password" placeholder="Contrasenya">
     <button type="submit">Iniciar Sesión</button>
 </form>
-
 ~~~
+
+![](images/Imagen15.png)
+
 Como vemos, hemos usado consutas paremetrizadas y además hemos utilizado las funciones para manejar las contraseñas hasheadas:
 
 >🔐 ¿Cómo funciona?
@@ -504,7 +510,7 @@ ALTER TABLE usuarios ADD last_attempt TIMESTAMP NULL DEFAULT NULL;
 ~~~
 Vemos como se han añadido las columnas indicadas:
 
-![](images/Imagen13.png)
+![](images/Imagen16.png)
 
 **Código seguro**
 
@@ -593,6 +599,8 @@ $conn->close();
     <button type="submit">Iniciar Sesión</button>
 </form>
 ~~~
+
+![](images/Imagen17.png)
 
 🔍 Qué hace este código:
 
@@ -702,6 +710,8 @@ $conn->close();
 
 ~~~
 
+![](images/Imagen18.png)
+
 **🪪 3. mostrar_codigo.php**
 
 
@@ -771,6 +781,7 @@ $conn->close();
 
 ~~~
 
+![](images/Imagen19.png)
 
 🧪 Flujo de prueba
 
@@ -778,11 +789,11 @@ $conn->close();
 
 - Si están bien, se genera un código y vas a mostrar_codigo.php.
 
-![](images/Imagen14.png)
+![](images/Imagen20.png)
 
 - Desde ahí, clicas a verificar_mfa.php e introduces el código.
 
-![](images/Imagen15.png)
+![](images/Imagen21.png)
 
 
 
