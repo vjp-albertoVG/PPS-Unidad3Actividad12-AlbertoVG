@@ -139,6 +139,9 @@ $conn->close();
         <button type="submit">Iniciar Sesión</button>
 </form>
 ~~~
+
+![](images/Imagen2.png)
+
 Antes de acceder la página web, asegurarse de que el servicio está en ejecución, y si es necesario, arrancar o reiniciar el servicio.
 
 Acceder a la pagina web aunque también podemos poner directamente el usuario y contraseña. Un ejemplo es  el siguiente enlace:
@@ -150,11 +153,11 @@ http://localhost/login_weak.php?username=admin&password=123456
 
 Vemos que si los datos son incorrectos nos muestra que no lo es:
 
-![](images/Imagen2.png)
+![](images/Imagen3.png)
 
 Y si es correcta nos lo indica:
 
-![](images/Imagen3.png)
+![](images/Imagen4.png)
 
 
 **Vulnerabilidades del código:**
@@ -203,11 +206,11 @@ Explicación de los parámetros:
 
 Aquí podemos ver cómo lanzamos el comando:
 
-![](images/Imagen4.png)
+![](images/Imagen5.png)
 
 Si encontramos un resultado correcto de autenticación, vemos como nos lo muestra:
 
-![](images/Imagen5.png)
+![](images/Imagen6.png)
 
 
 ## Explotación de SQL Injection
@@ -228,7 +231,7 @@ SELECT * FROM users WHERE username = 'admin' AND password = '' OR '1'='1';
 
 Debido a que '1'='1' es siempre verdadero, el atacante obtendría acceso.
 
-![](images/Imagen6.png)
+![](images/Imagen7.png)
 
 
 ## Mitigación: Código Seguro en PHP
@@ -266,7 +269,7 @@ Para almacenar las contraseñas hasheadas, deberemos de modificar la tabla donde
  ALTER TABLE usuarios MODIFY contrasenya VARCHAR(255) NOT NULL; 
 ~~~
 >
-![](images/Imagen7.png)
+![](images/Imagen8.png)
 
 
 >Creamos la función **ạdd_user.php** para introducir los usuarios con su contraseña hasheada (Acuérdate de cambiar MiContraseña por la tuya de root):
@@ -326,11 +329,11 @@ En la función **pasword_hash()"** utilizamos la función por defecto: **PASSWOR
 
 >Como vemos, una vez ejecutado nos informa que el usuario raul con contraseña 123456 ha sido insertado.
 >
-![](images/Imagen8.png)
+![](images/Imagen9.png)
 
  Lo podemos ver accediendo al servicio phpmyadmin: `http://localhost:8080`
 
-![](images/Imagen9.png)
+![](images/Imagen10.png)
 
  También puedes obtener los usuarios conectandote a la base de datos y ejecutando la consulta:
 
@@ -392,7 +395,7 @@ $conn->close();
 
 Como vemos en la siguiente imagen nos da un login exitoso:
 
-![](images/Imagen10.png)
+![](images/Imagen11.png)
 
 También puedes probar a usuarlos introduciendo en el navegador:
 
@@ -406,7 +409,7 @@ Si introducimos datos no correcto dará el mensaje de "Usuario o contraseña no 
 http://localhost/login_weak1.php?username=raul&password=1234
 ~~~
 
-![](images/Imagen11.png)
+![](images/Imagen12.png)
 
 
 ### Uso de consultas preparadas
@@ -501,7 +504,7 @@ ALTER TABLE usuarios ADD last_attempt TIMESTAMP NULL DEFAULT NULL;
 ~~~
 Vemos como se han añadido las columnas indicadas:
 
-![](images/Imagen12.png)
+![](images/Imagen13.png)
 
 **Código seguro**
 
@@ -775,11 +778,11 @@ $conn->close();
 
 - Si están bien, se genera un código y vas a mostrar_codigo.php.
 
-![](images/Imagen13.png)
+![](images/Imagen14.png)
 
 - Desde ahí, clicas a verificar_mfa.php e introduces el código.
 
-![](images/Imagen14.png)
+![](images/Imagen15.png)
 
 
 
