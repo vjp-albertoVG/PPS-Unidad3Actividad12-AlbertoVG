@@ -648,6 +648,8 @@ ALTER TABLE usuarios ADD failed_attempts INT DEFAULT 0;
 ALTER TABLE usuarios ADD last_attempt TIMESTAMP NULL DEFAULT NULL;
 ~~~
 
+![](images/Imagen18.png)
+
 **🔐 2. login_weak4.php (login + generación del código)**
 
 Crea el archivo login_weak4.php con el siguiente contenido (recuerda cambiar la contraseña):
@@ -710,7 +712,7 @@ $conn->close();
 
 ~~~
 
-![](images/Imagen18.png)
+![](images/Imagen19.png)
 
 **🪪 3. mostrar_codigo.php**
 
@@ -725,6 +727,9 @@ echo "<a href='verificar_mfa.php'>Ir a verificación MFA</a>";
 ?>
 ~~~
 
+![](images/Imagen20.png)
+
+![](images/Imagen21.png)
 
 **✅ 4. verificar_mfa.php (verificación del código)**
 
@@ -781,7 +786,7 @@ $conn->close();
 
 ~~~
 
-![](images/Imagen19.png)
+![](images/Imagen22.png)
 
 🧪 Flujo de prueba
 
@@ -789,11 +794,11 @@ $conn->close();
 
 - Si están bien, se genera un código y vas a mostrar_codigo.php.
 
-![](images/Imagen20.png)
+![](images/Imagen23.png)
 
 - Desde ahí, clicas a verificar_mfa.php e introduces el código.
 
-![](images/Imagen21.png)
+![](images/Imagen24.png)
 
 
 
